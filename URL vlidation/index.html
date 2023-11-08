@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>URL Validation</title>
+</head>
+<body>
+  <h1>URL Validation</h1>
+  <p>Enter a URL and press the Validate button.</p>
+  <input type="text" id="url" placeholder="Enter URL">
+  <button id="validate">Validate</button>
+  <p id="result"></p>
+  <script>
+    // Get the elements from the document
+    var url = document.getElementById("url");
+    var validate = document.getElementById("validate");
+    var result = document.getElementById("result");
+
+    // Define a regex pattern for valid URLs
+    var pattern = /^(http|https):\/\/[a-zA-Z0-9@:%._\+~#?&//=]+\.[a-z]+$/;
+
+    // Add an event listener to the validate button
+    validate.addEventListener("click", function() {
+      // Get the input value
+      var input = url.value;
+
+      // Check if the input matches the regex
+      if (pattern.test(input)) {
+        // Display a success message
+        result.textContent = "The URL is valid.";
+        result.style.color = "green";
+      } else {
+        // Display an error message
+        result.textContent = "The URL is not valid.";
+        result.style.color = "red";
+      }
+    });
+  </script>
+</body>
+</html>
